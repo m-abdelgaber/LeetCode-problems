@@ -4,10 +4,10 @@ public:
         string res ="";
         int fP=0; 
         int sP=0;
+        int n = s.size();
         
-        
-        while(fP < s.size() && sP < s.size()){
-            for(;sP<s.size(); sP++){
+        while(fP < n && sP < n){
+            for(;sP<n; sP++){
                 if(s[sP] == ' '){
                     
                     break;
@@ -20,13 +20,13 @@ public:
             
             res = res + subs+ " ";
             fP = ++sP;
-            for(; fP< s.size(); fP++){
+            for(; fP< n; fP++){
                 if(s[fP] != ' '){
                     sP = fP;
                     break;
                 }
              }
         }
-        return res.substr(0, res.size()-1);   
+        return res.substr(0, n);   
     }
 };
