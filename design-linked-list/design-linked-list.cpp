@@ -23,7 +23,7 @@ public:
     }
     
     int get(int index) {
-        if(index >= size)
+        if(index >= size || index <0)
             return -1;
         else if (index == size-1)
             return tail->val;
@@ -36,44 +36,36 @@ public:
     }
     
     void addAtHead(int val) {
-        Node* temp = new Node(val);
-        temp->next = head;
-        head = temp;
-        if (tail == nullptr)
-            tail = head;
-        size++;
+        addAtIndex(0, val);
     }
     
     void addAtTail(int val) {
-        Node*temp = new Node(val);
-        Node* curr = head;
-        if(head == nullptr){
-            head = temp;
-            tail = temp;
-            size++;
-            return;
-        }
-        // while(curr->next != nullptr){
-        //     curr = curr->next;
-        // }
-        tail->next = temp;
-        tail = temp;
-        size++;
+        addAtIndex(size, val);
     }
     
     void addAtIndex(int index, int val) {
-        if (index > size)
+        if (index > size|| index <0)
             return;
-        else if(index == size){
-            addAtTail(val);
-            return;
-        }
-        else if(index ==0){
-            addAtHead(val);
-            return;
-        }
-        Node* temp = new Node(val);
-
+        else{
+            Node* temp = new Node(val);
+            if(head == nullptr){
+                head = temp;
+                tail = temp;
+                size++;
+                return;
+            }
+            else  if (index ==0){
+                temp->next = head;
+                head = temp;
+                size++;
+                return;
+            }
+            else if (index == size){
+                tail->next = temp;
+                tail = temp;
+                size++;
+                return;
+            }
         Node* curr = head;
         for(int i=0; i< index-1; i++){
             curr = curr->next;
@@ -81,14 +73,16 @@ public:
         temp->next = curr->next;
         curr->next = temp;
         size++;
+        }
     }
     
     void deleteAtIndex(int index) {
-        if(index >= size)
+        if(index >= size|| index <0)
             return;
         if(index ==0){
-            
-            head = head->next;
+            Node* nxt = head->next;
+            delete head;
+            head = nxt;
             size--;
             return;
         }
@@ -96,8 +90,9 @@ public:
         for(int i=0; i< index-1; i++){
             curr = curr->next;
         }
-        
+        Node* nxt = curr->next;
         curr->next = (curr->next)->next;
+        delete nxt;
         if (curr->next == nullptr){
             tail = curr;
         }
