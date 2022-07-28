@@ -15,14 +15,18 @@ class MyLinkedList {
     };
 public:
     Node* head;
+    Node* tail;
     MyLinkedList() {
         head = nullptr;
+        tail = nullptr;
         size =0;
     }
     
     int get(int index) {
         if(index >= size)
             return -1;
+        else if (index == size-1)
+            return tail->val;
         Node* curr = head;
         for(int i=0; i< index; i++){
             
@@ -35,6 +39,8 @@ public:
         Node* temp = new Node(val);
         temp->next = head;
         head = temp;
+        if (tail == nullptr)
+            tail = head;
         size++;
     }
     
@@ -43,30 +49,31 @@ public:
         Node* curr = head;
         if(head == nullptr){
             head = temp;
+            tail = temp;
             size++;
             return;
         }
-        while(curr->next != nullptr){
-            curr = curr->next;
-        }
-        curr->next = temp;
+        // while(curr->next != nullptr){
+        //     curr = curr->next;
+        // }
+        tail->next = temp;
+        tail = temp;
         size++;
     }
     
     void addAtIndex(int index, int val) {
-        if(index == size){
+        if (index > size)
+            return;
+        else if(index == size){
             addAtTail(val);
             return;
         }
-        else if (index > size)
-            return;
-        Node* temp = new Node(val);
-        if(index ==0){
-            temp-> next = head;
-            head = temp;
-            size++;
+        else if(index ==0){
+            addAtHead(val);
             return;
         }
+        Node* temp = new Node(val);
+
         Node* curr = head;
         for(int i=0; i< index-1; i++){
             curr = curr->next;
@@ -89,7 +96,12 @@ public:
         for(int i=0; i< index-1; i++){
             curr = curr->next;
         }
+        
         curr->next = (curr->next)->next;
+        if (curr->next == nullptr){
+            tail = curr;
+        }
+        
         size--;
     }
 };
