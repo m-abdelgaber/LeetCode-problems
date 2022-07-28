@@ -34,7 +34,6 @@ public:
             }
         }
         while(currA->next && currB->next && currA != currB ){
-            cout<<currA->val<<" "<< currB->val<<" ";
             currA = currA->next;
             currB = currB->next;
         }
