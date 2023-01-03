@@ -9,7 +9,6 @@ class Solution(object):
         for i in range(0, len(strs[0])):
             for j in range(0, len(strs)-1):
                 if(ord(strs[j][i]) > ord(strs[j+1][i])):
-                    print(i,j)
                     count +=1
                     break
         return count
