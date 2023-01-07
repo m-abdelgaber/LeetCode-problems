@@ -6,7 +6,6 @@ class Solution(object):
         :rtype: int
         """
         diff = [a_i - b_i for a_i, b_i in zip(gas, cost)]
-        # diff = gas - cost
         start_ind = -1
         accumilative_diff = -1
         index =0
@@ -33,16 +32,4 @@ class Solution(object):
                 pos_counter+=1
             overall_counter+=1
             index+=1
-            
-                    
-        
-        # for ind in range(1,len(diff)):
-        #     elem = diff[ind]
-        #     if accumilative_diff < 0:
-        #         if elem>0:
-        #             index = ind
-        #             accumilative_diff = elem
-        #     else:
-        #         accumilative_diff + diff[ind]
-                    
         
