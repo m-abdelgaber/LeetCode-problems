@@ -22,8 +22,6 @@ class Solution(object):
 
         def recursive_traversal( node_num):
             visited_nodes.add(node_num)
-            # if (node_num in visited_nodes):
-            #     return 0
             # if node_num is not out of binary edges bounds (might have children nodes)
             if(node_num in dic_edges):
                 # if the node with node_num has edges with (children)  
