@@ -7,7 +7,7 @@ class Solution(object):
         """
         
         
-        s, e = newInterval[0], newInterval[1]
+        s, e = newInterval
         left, right = [], []
         for i in intervals:
             if i[1] < s:
