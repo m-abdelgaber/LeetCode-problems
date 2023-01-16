@@ -6,26 +6,24 @@ class Solution(object):
         """
         myStack = deque() 
         
-        try:
-            for e in s:
-                # print(e, myStack)
-                if e in "([{":
-                    myStack.append(e)
-                elif (e == ")" ):
-                    if(len(myStack) == 0 or myStack[-1] != "("):
-                        return False
-                    myStack.pop()
-                    
-                elif (e == "]"):
-                    if(len(myStack) == 0 or myStack[-1] != "["):
-                        return False
-                    myStack.pop()
-                elif ( e=="}"):
-                    if(len(myStack) == 0 or myStack[-1] != "{"):
-                        return False
-                    myStack.pop()
-        except e:
-            return False
+
+        for e in s:
+            if e in "([{":
+                myStack.append(e)
+            elif (e == ")" ):
+                if(len(myStack) == 0 or myStack[-1] != "("):
+                    return False
+                myStack.pop()
+
+            elif (e == "]"):
+                if(len(myStack) == 0 or myStack[-1] != "["):
+                    return False
+                myStack.pop()
+            elif ( e=="}"):
+                if(len(myStack) == 0 or myStack[-1] != "{"):
+                    return False
+                myStack.pop()
+
         if(len(myStack) ==0):
             return True 
         print(myStack)
