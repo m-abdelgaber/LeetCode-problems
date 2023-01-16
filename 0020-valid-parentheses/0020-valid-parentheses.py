@@ -6,22 +6,26 @@ class Solution(object):
         """
         myStack = deque() 
         
-
+        paren = {'[': ']', '{': '}', '(': ')'}
         for e in s:
-            if e in "([{":
+            if e in paren:
                 myStack.append(e)
-            elif (e == ")" ):
-                if(len(myStack) == 0 or myStack[-1] != "("):
+            else:
+                if((len(myStack) ==0) or (paren[myStack[-1]] != e)):
                     return False
                 myStack.pop()
+#             elif (e == ")" ):
+#                 if(len(myStack) == 0 or myStack[-1] != "("):
+#                     return False
+#                 myStack.pop()
 
-            elif (e == "]"):
-                if(len(myStack) == 0 or myStack[-1] != "["):
-                    return False
-                myStack.pop()
-            elif ( e=="}"):
-                if(len(myStack) == 0 or myStack[-1] != "{"):
-                    return False
-                myStack.pop()
+#             elif (e == "]"):
+#                 if(len(myStack) == 0 or myStack[-1] != "["):
+#                     return False
+#                 myStack.pop()
+#             elif ( e=="}"):
+#                 if(len(myStack) == 0 or myStack[-1] != "{"):
+#                     return False
+#                 myStack.pop()
 
         return len(myStack) ==0
