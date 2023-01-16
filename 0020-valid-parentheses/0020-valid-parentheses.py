@@ -14,18 +14,5 @@ class Solution(object):
                 if((len(myStack) ==0) or (paren[myStack[-1]] != e)):
                     return False
                 myStack.pop()
-#             elif (e == ")" ):
-#                 if(len(myStack) == 0 or myStack[-1] != "("):
-#                     return False
-#                 myStack.pop()
-
-#             elif (e == "]"):
-#                 if(len(myStack) == 0 or myStack[-1] != "["):
-#                     return False
-#                 myStack.pop()
-#             elif ( e=="}"):
-#                 if(len(myStack) == 0 or myStack[-1] != "{"):
-#                     return False
-#                 myStack.pop()
 
         return len(myStack) ==0
