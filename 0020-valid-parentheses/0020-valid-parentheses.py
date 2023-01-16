@@ -24,7 +24,4 @@ class Solution(object):
                     return False
                 myStack.pop()
 
-        if(len(myStack) ==0):
-            return True 
-        print(myStack)
-        return False
+        return len(myStack) ==0
