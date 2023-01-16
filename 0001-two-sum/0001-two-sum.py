@@ -5,11 +5,10 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
+        num_hash = {}
+        for i in range(0, len(nums)):
+            if(target - nums[i] in num_hash):
+                return [i, num_hash[target-nums[i]]]
+            num_hash[nums[i]] = i        
         
         
-        
-        for i in range(0,len(nums)-1):
-            for j in range(i+1, len(nums)):
-                summation = nums[i]+ nums[j]
-                if(summation == target):
-                    return i,j
