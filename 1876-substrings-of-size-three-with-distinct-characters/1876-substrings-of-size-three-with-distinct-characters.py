@@ -9,13 +9,10 @@ class Solution(object):
         end =3
         window_chars = set()
         counter =0
-        # window_chars.add(s[0])
-        # window_chars.add(s[1])
-        # window_chars.add(s[2])
         
         while(end< len(s)+1):
             
-            print(window_chars)
+            # print(window_chars)
             string = s[end-3:end]
             
             for char in string:
