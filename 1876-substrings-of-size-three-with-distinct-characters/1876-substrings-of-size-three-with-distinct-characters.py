@@ -6,21 +6,14 @@ class Solution(object):
         """
         if(len(s) < 3):
             return 0
-        end =3
-        window_chars = set()
+        start =0
         counter =0
         
-        while(end< len(s)+1):
+        while(start< len(s)-2):
             
-            # print(window_chars)
-            string = s[end-3:end]
             
-            for char in string:
-                window_chars.add(char)
-            # print(string, window_chars)
-            if(len(window_chars)==3):
+            if(s[start]!= s[start+1] and s[start+1] != s[start+ 2] and s[start+ 2] != s[start]):
                 counter+=1
-            window_chars.clear()
-            end +=1
+            start +=1
             
         return counter
