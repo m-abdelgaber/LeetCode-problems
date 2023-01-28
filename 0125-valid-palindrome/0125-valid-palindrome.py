@@ -9,18 +9,18 @@ class Solution:
         
         def isAlphaNumeric(c):
             return c.isalnum()
-        while(lp < rp):
-            
+        
+        while(lp < rp):    
             if(not isAlphaNumeric(s[lp]) ):
                 lp+=1
             elif(not isAlphaNumeric(s[rp]) ):
                 rp-=1
             else:
-                if(s[lp].lower() == s[rp].lower()):
-                    lp+=1
-                    rp-=1
-                    continue
-                return False
+                if(s[lp].lower() != s[rp].lower()):
+                    return False    
+                lp+=1
+                rp-=1
+                
         
         return True
             
