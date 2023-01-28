@@ -10,16 +10,17 @@ class Solution:
         def isAlphaNumeric(c):
             return c.isalnum()
         while(lp < rp):
-            if( isAlphaNumeric(s[lp]) and isAlphaNumeric(s[rp])):
+            
+            if(not isAlphaNumeric(s[lp]) ):
+                lp+=1
+            elif(not isAlphaNumeric(s[rp]) ):
+                rp-=1
+            else:
                 if(s[lp].lower() == s[rp].lower()):
                     lp+=1
                     rp-=1
                     continue
                 return False
-            if(not isAlphaNumeric(s[lp]) ):
-                lp+=1
-            if(not isAlphaNumeric(s[rp]) ):
-                rp-=1
         
         return True
             
