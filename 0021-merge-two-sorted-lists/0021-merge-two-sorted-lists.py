@@ -35,5 +35,6 @@ class Solution:
         elif(list2Pointer !=None):
             mergedTail.next = list2Pointer
         mergedHead = mergedHead.next
+        del list1, list2
         return mergedHead
         
